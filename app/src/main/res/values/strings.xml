@@ -4,11 +4,12 @@
     <string name="add_new">Agregar</string>
     <string name="monday">Lunes</string>
     <string name="tuesday">Martes</string>
-    <string name="tuesday">Martes</string>
     <string name="wednesady">Miercoles</string>
     <string name="thusday">Jueves</string>
     <string name="friday">Viernes</string>
     <string name="saturday">Sabado</string>
     <string name="sunday">Domingo</string>
     <string name="Calendar">calendario</string>
+    <string name="setting">configuracion</string>
+    <string name="calendar">Calendario</string>
 </resources>
