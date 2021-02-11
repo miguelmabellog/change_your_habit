@@ -4,11 +4,15 @@ import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.changeyourhabit.R
+import com.example.changeyourhabit.database.PointDatabase
+import com.example.changeyourhabit.database.PointDate
+import com.example.changeyourhabit.databinding.AddNewFragmentBinding
 
 class AddNewFragment : Fragment() {
 
@@ -23,15 +27,23 @@ class AddNewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val binding = DataBindingUtil.inflate<AddNewFragmentBinding>(
+            inflater, R.layout.add_new_fragment, container, false)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = PointDatabase.getInstance(application).pointDao
+        val viewModelFactory = AddNewViewModelFactory(dataSource, application)
+
+        viewModel = ViewModelProvider(this,viewModelFactory).get(AddNewViewModel::class.java)
+
+        binding.viewModel=viewModel
+
+
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.add_new_fragment, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AddNewViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
