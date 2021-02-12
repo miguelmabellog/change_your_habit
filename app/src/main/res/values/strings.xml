@@ -12,4 +12,5 @@
     <string name="Calendar">calendario</string>
     <string name="setting">configuracion</string>
     <string name="calendar">Calendario</string>
+    <string name="delete_points">Quitar</string>
 </resources>

@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'kotlin-android-extensions'
 
 
 android {
@@ -50,8 +51,10 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
@@ -61,12 +64,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Room and Lifecycle dependencies
-    def version_room = "2.2.5"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1"
-    kapt "androidx.lifecycle:lifecycle-compiler:2.0.0-alpha1"
-    implementation "androidx.room:room-runtime:2.0.0-alpha1"
-    kapt "androidx.room:room-compiler:2.0.0-alpha1"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    implementation "androidx.room:room-ktx:$room_version"
+
+
 }

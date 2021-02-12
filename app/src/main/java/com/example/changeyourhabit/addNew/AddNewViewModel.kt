@@ -12,16 +12,39 @@ import java.util.*
 class AddNewViewModel(
     val database: PointDao,
     application: Application) : AndroidViewModel(application){
+    private val sdf = SimpleDateFormat("dd/M/yyyy")
+    private val currentDate = sdf.format(Date())
+    private lateinit var todayDate: PointDate
 
-    fun setPoint() {
+    init {
+        checktoday()
+    }
 
+    private fun checktoday() {
         viewModelScope.launch {
+            val todayDate=database.getToday(currentDate)
+            if(todayDate==null){
+                setPoint()
+            }
+        }
+    }
 
-            //val newPointDate = PointDate(numberOfPoints = 1,date ="Date()")
-            //database.insert(newPointDate)
+    private fun setPoint() {
+        viewModelScope.launch {
+            val newPointDate = PointDate(numberOfPoints = 1,date =currentDate)
+            database.insert(newPointDate)
+        }
+    }
+
+    fun addPoint(){
+        viewModelScope.launch {
+            var todayDate=database.getToday(currentDate)
+            if(todayDate!=null){
+                todayDate.numberOfPoints=todayDate.numberOfPoints+1
+                database.update(todayDate)
+            }
+
 
         }
-
-
     }
 }

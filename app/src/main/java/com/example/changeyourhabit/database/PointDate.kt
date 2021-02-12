@@ -10,7 +10,7 @@ data class PointDate (
     @PrimaryKey(autoGenerate = true)
     var newPoindId:Long=0L,
 
-    @ColumnInfo()
+    @ColumnInfo
     var numberOfPoints: Int=0,
 
     @ColumnInfo

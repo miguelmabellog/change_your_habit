@@ -12,8 +12,8 @@ class WeekViewModelFactory (
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(AddNewViewModel::class.java)) {
-            return AddNewViewModel(dataSource, application) as T
+        if (modelClass.isAssignableFrom(WeekViewModel::class.java)) {
+            return WeekViewModel(dataSource, application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
