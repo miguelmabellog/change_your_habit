@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.preference.PreferenceManager
 import com.example.changeyourhabit.R
 import com.example.changeyourhabit.database.PointDatabase
 import com.example.changeyourhabit.database.PointDate
@@ -33,10 +34,13 @@ class AddNewFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = PointDatabase.getInstance(application).pointDao
         val viewModelFactory = AddNewViewModelFactory(dataSource, application)
-
+        binding.lifecycleOwner=this
         viewModel = ViewModelProvider(this,viewModelFactory).get(AddNewViewModel::class.java)
 
         binding.viewModel=viewModel
+
+
+
 
 
         setHasOptionsMenu(true)

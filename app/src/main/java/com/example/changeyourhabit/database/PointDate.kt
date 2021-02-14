@@ -14,6 +14,11 @@ data class PointDate (
     var numberOfPoints: Int=0,
 
     @ColumnInfo
-    var date: String=" "
+    var date: String=" ",
+
+    @ColumnInfo
+    var dayOfWeek: String=" "
+
+
 )
 
