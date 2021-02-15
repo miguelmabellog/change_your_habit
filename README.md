@@ -1,6 +1,6 @@
 # Cambia tu habito
 
-Esta es una aplicación que permite llevar la cuenta de un habito que quiere comenzar a tener o un habito que quieres cambiar
+Esta es una aplicación que permite llevar la cuenta de un habito que quieres comenzar a tener o un habito que quieres cambiar
 
 ## Tecnologia aplicada
 
