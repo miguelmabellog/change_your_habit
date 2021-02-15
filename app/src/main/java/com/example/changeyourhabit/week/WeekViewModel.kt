@@ -18,6 +18,14 @@ class WeekViewModel (
     var currentDate: String = sdf.format(today)
     private val searchDate=MutableLiveData<String>()
 
+    private val dayformat=SimpleDateFormat("EEEE")
+    private var dayOfWeekSearch=dayformat.format(Date())
+
+    private var calendar = Calendar.getInstance()
+    private var daySearch = calendar[Calendar.DAY_OF_MONTH]
+    private var monthSearch=calendar[Calendar.MONTH]+1
+    private var yearSearch=calendar[Calendar.YEAR]
+
     val mondayPoints=searchDate.switchMap {
         liveData {
             var data= putNumberForDay(0,it)?.numberOfPoints?.toString()?:"0"
@@ -69,44 +77,15 @@ class WeekViewModel (
         }
     }
 
-    private val dayformat=SimpleDateFormat("EEEE")
-    private var dayOfWeekSearch=dayformat.format(Date())
-
-    private var calendar = Calendar.getInstance()
-    private var daySearch = calendar[Calendar.DAY_OF_MONTH]
-    private var monthSearch=calendar[Calendar.MONTH]+1
-    private var yearSearch=calendar[Calendar.YEAR]
 
 
 
 
-    fun givedate(day:Int,month:Int,year:Int){
-        val dateUpdate="$day/${month+1}/$year"
 
 
-        calendar.set(Calendar.DAY_OF_MONTH,day)
-        calendar.set(Calendar.MONTH,month)
-        calendar.set(Calendar.YEAR,year)
-
-
-        dayOfWeekSearch=dayformat.format(calendar.time)
-
-        searchDate.value=dateUpdate
-        daySearch=day
-        monthSearch=month+1
-        yearSearch=year
-
-        refreshDateText(daySearch,monthSearch,yearSearch,dayOfWeekSearch,calendar)
-    }
-
-    init {
-        searchDate.value=currentDate
-        refreshDateText(daySearch,monthSearch,yearSearch,dayOfWeekSearch,calendar)
-    }
-
-    private var _mondayDate=MutableLiveData<String>()
-    val  mondayDate: LiveData<String>
-            get()=_mondayDate
+    private var _mondayDate=MutableLiveData<String?>()
+    val  mondayDate: LiveData<String?>
+        get()=_mondayDate
 
     private var _tuesdayDate=MutableLiveData<String>()
     val  tuesdayDate: LiveData<String>
@@ -132,26 +111,85 @@ class WeekViewModel (
     val  sundayDate: LiveData<String>
         get()=_sundayDate
 
-    fun refreshDateText(day:Int, month: Int, year: Int, dayOfWeek: String, calendar: Calendar){
 
+
+
+
+
+
+
+
+
+
+    fun givedate(day:Int,month:Int,year:Int){
+        val dateUpdate="$day/${month+1}/$year"
+
+
+        calendar.set(Calendar.DAY_OF_MONTH,day)
+        calendar.set(Calendar.MONTH,month)
+        calendar.set(Calendar.YEAR,year)
+
+
+        dayOfWeekSearch=dayformat.format(calendar.time)
+
+        searchDate.value=dateUpdate
+        daySearch=day
+        monthSearch=month+1
+        yearSearch=year
+
+        refreshDateText(dayOfWeekSearch)
+    }
+
+    init {
+
+        searchDate.value=currentDate
+        refreshDateText(dayOfWeekSearch)
+
+    }
+
+
+
+    fun refreshDateText( dayOfWeek: String){
         when (dayOfWeek){
-            "Monday"->{ _mondayDate.value=sdf.format(calendar.time)
-                _tuesdayDate.value=sdf.format(addCalendar(1,calendar).time)
-                _wednesdayDate.value=sdf.format(addCalendar(2,calendar).time)
-                _thursdayDate.value=sdf.format(addCalendar(3,calendar).time)
-                _fridayDate.value=sdf.format(addCalendar(4,calendar).time)
-                _saturdayDate.value=sdf.format(addCalendar(4,calendar).time)
-                _sundayDate.value=sdf.format(addCalendar(5,calendar).time)
-
-                        }
-
+            "Monday"->fillTextDate(0)
+            "Tuesday"->fillTextDate(1)
+            "Wednesday"->fillTextDate(2)
+            "Thursday"->fillTextDate(3)
+            "Friday"->fillTextDate(4)
+            "Saturday"->fillTextDate(5)
+            "Sunday"->fillTextDate(6)
         }
 
     }
 
-    fun addCalendar(add:Int, calendar: Calendar):Calendar{
-        calendar.add(Calendar.DATE, +(add))
-        return calendar
+    fun fillTextDate(key:Int){
+
+        var arrayname = Array(7) { _ ->  1 }
+        arrayname[0]=-key
+
+        var innercalendario=calendar
+
+        val lastDay=innercalendario[Calendar.DAY_OF_MONTH]
+        val lastMonth=innercalendario[Calendar.MONTH]
+        val lastYear=innercalendario[Calendar.YEAR]
+
+        _mondayDate.value=sdf.format(addCalendar(arrayname[0],innercalendario).time)
+        _tuesdayDate.value=sdf.format(addCalendar(arrayname[1],innercalendario).time)
+        _wednesdayDate.value=sdf.format(addCalendar(arrayname[2],innercalendario).time)
+        _thursdayDate.value=sdf.format(addCalendar(arrayname[3],innercalendario).time)
+        _fridayDate.value=sdf.format(addCalendar(arrayname[4],innercalendario).time)
+        _saturdayDate.value=sdf.format(addCalendar(arrayname[5],innercalendario).time)
+        _sundayDate.value=sdf.format(addCalendar(arrayname[6],innercalendario).time)
+
+        calendar.set(Calendar.DAY_OF_MONTH,lastDay)
+        calendar.set(Calendar.MONTH,lastMonth)
+        calendar.set(Calendar.YEAR,lastYear)
+
+    }
+
+    fun addCalendar(add:Int, innercalendar: Calendar):Calendar{
+        innercalendar.add(Calendar.DATE , +(add))
+        return innercalendar
     }
 
 
@@ -160,26 +198,34 @@ class WeekViewModel (
 
 
     private suspend  fun putPoints(tag: Int): PointDate? {
-        var calendar: Calendar
-        var key_search: String
+        var innerC=calendar
+        Log.i("calendar",sdf.format(calendar.time))
+        val lastDay=innerC[Calendar.DAY_OF_MONTH]
+        val lastMonth=innerC[Calendar.MONTH]
+        val lastYear=innerC[Calendar.YEAR]
+        var key_search: String=""
         var result_search: PointDate?=null
 
         if(numberOfDay != null){
-            calendar = Calendar.getInstance()
-            calendar.add(Calendar.DATE, -(numberOfDay!! -tag))
-            key_search=sdf.format(calendar.time)
-            result_search=database.getToday(key_search)
+            innerC.add(Calendar.DATE, -(numberOfDay!! -tag))
+            key_search=sdf.format(innerC.time)
+            Log.i("keay_search",key_search)
+            calendar.set(Calendar.DAY_OF_MONTH,lastDay)
+            calendar.set(Calendar.MONTH,lastMonth)
+            calendar.set(Calendar.YEAR,lastYear)
         }
+        result_search=database.getToday(key_search)
 
 
         return result_search
+
     }
 
     private suspend fun putNumberForDay(tag:Int, searchDate:String): PointDate? {
-        Log.i("PutNumberforDay",searchDate)
-            var todayDate=database.getToday(searchDate)
 
-            numberOfDay = when (todayDate?.dayOfWeek){
+
+
+            numberOfDay = when (dayOfWeekSearch){
                 "Monday"-> 0
                 "Tuesday"-> 1
                 "Wednesday"-> 2
@@ -191,6 +237,7 @@ class WeekViewModel (
                     null
                 }
             }
+        
             return putPoints(tag)
     }
 
