@@ -16,7 +16,7 @@
         tools:context=".week.WeekFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/sundayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -24,7 +24,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+            app:layout_constraintTop_toBottomOf="@+id/saturdayConstrain">
 
             <TextView
                 android:id="@+id/sunday"
@@ -59,15 +59,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout4"
+            android:id="@+id/saturdayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintBottom_toTopOf="@+id/sundayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+            app:layout_constraintTop_toBottomOf="@+id/fridayConstrain">
 
             <TextView
                 android:id="@+id/saturday"
@@ -103,17 +103,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout5"
+            android:id="@+id/fridayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:background="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintBottom_toTopOf="@+id/saturdayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+            app:layout_constraintTop_toBottomOf="@+id/thursdayConstrain">
 
             <TextView
                 android:id="@+id/friday"
@@ -150,15 +150,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout6"
+            android:id="@+id/thursdayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+            app:layout_constraintBottom_toTopOf="@+id/fridayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+            app:layout_constraintTop_toBottomOf="@+id/wednesdayConstrain">
 
             <TextView
                 android:id="@+id/thursday"
@@ -194,15 +194,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout7"
+            android:id="@+id/wednesdayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+            app:layout_constraintBottom_toTopOf="@+id/thursdayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+            app:layout_constraintTop_toBottomOf="@+id/tuesdayConstrain">
 
             <TextView
                 android:id="@+id/wednesday"
@@ -242,15 +242,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout8"
+            android:id="@+id/tuesdayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+            app:layout_constraintBottom_toTopOf="@+id/wednesdayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+            app:layout_constraintTop_toBottomOf="@+id/mondayConstrain">
 
             <TextView
                 android:id="@+id/tuesday"
@@ -288,12 +288,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout9"
+            android:id="@+id/mondayConstrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+            app:layout_constraintBottom_toTopOf="@+id/tuesdayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button">
@@ -338,7 +338,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Calendar"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+            app:layout_constraintBottom_toTopOf="@+id/mondayConstrain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

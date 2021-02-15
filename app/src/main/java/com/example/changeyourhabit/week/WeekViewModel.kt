@@ -77,7 +77,9 @@ class WeekViewModel (
         }
     }
 
-
+    private var _highligh=MutableLiveData<String?>()
+    val  highligh: LiveData<String?>
+        get()=_highligh
 
 
 
@@ -123,20 +125,16 @@ class WeekViewModel (
 
     fun givedate(day:Int,month:Int,year:Int){
         val dateUpdate="$day/${month+1}/$year"
-
-
         calendar.set(Calendar.DAY_OF_MONTH,day)
         calendar.set(Calendar.MONTH,month)
         calendar.set(Calendar.YEAR,year)
-
-
         dayOfWeekSearch=dayformat.format(calendar.time)
-
         searchDate.value=dateUpdate
         daySearch=day
         monthSearch=month+1
         yearSearch=year
 
+        _highligh.value=dayOfWeekSearch
         refreshDateText(dayOfWeekSearch)
     }
 
@@ -144,6 +142,7 @@ class WeekViewModel (
 
         searchDate.value=currentDate
         refreshDateText(dayOfWeekSearch)
+        _highligh.value=dayOfWeekSearch
 
     }
 
