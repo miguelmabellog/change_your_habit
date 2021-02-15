@@ -15,23 +15,13 @@ SharePreferences: Almacena datos de poco tamaño que persisten en la aplicacion 
 
 Navegacion menu y drawer.
 
-<img src="acercade.gif" width="130" height="250"/>
+<img src="video1.gif" width="130" height="250"/>
 
 Juega y gana.
 
-<img src="anwer.gif" width="130" height="250"/>
+<img src="video2.gif" width="130" height="250"/>
 
-Se acaba el tiempo.
 
-<img src="timeup.gif" width="130" height="250"/>
-
-Nueva pregunta.
-
-<img src="newadd.gif" width="130" height="250"/>
-
-Borrar pregunta
-
-<img src="delete.gif" width="130" height="250"/>
 
 ## License
 
