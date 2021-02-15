@@ -13,13 +13,13 @@ SharePreferences: Almacena datos de poco tamaño que persisten en la aplicacion 
 
 ## Aplicación
 
-Navegacion menu y drawer.
+Aumenta la cuenta de tu habito con el boton verde y restala con el boton rojo, el menu de arriba con el boton calendario puedes ver tu puntuación semanal.
 
-<img src="video1.gif" width="130" height="250"/>
+<img src="video1.gif" width="220" height="400"/>
 
-Juega y gana.
+Con el boton calendario en la barra de arriba puedes ver tu puntuacion semanal y con el boton calendario puedes elegir un dia especifico.
 
-<img src="video2.gif" width="130" height="250"/>
+<img src="video2.gif" width="220" height="400"/>
 
 
 
