@@ -237,7 +237,7 @@ class WeekViewModel (
                     null
                 }
             }
-        
+
             return putPoints(tag)
     }
 
