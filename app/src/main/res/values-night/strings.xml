@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">changeYourHabit</string>
+    <string name="tittle">Cambia tu habito</string>
+    <string name="add_new">Agregar</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesady">Miercoles</string>
+    <string name="thusday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sabado</string>
+    <string name="sunday">Domingo</string>
+    <string name="Calendar">calendario</string>
+    <string name="setting">configuracion</string>
+    <string name="calendar">Calendario</string>
+    <string name="delete_points">Quitar</string>
+    <string name="last_time">Ultima vez</string>
+</resources>
