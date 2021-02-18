@@ -9,9 +9,14 @@ Room: Base de datos local. <br />
 Corutines: corutinas para manejar ejecucion de codigo asincrono.<br />
 Navigation: navegacion entre fragments. <br />
 DataBinding: Union entre componentes layout y controladores. <br />
-SharePreferences: Almacena datos de poco tamaño que persisten en la aplicacion <br />
+SharePreferences: Almacena datos de poco tamaño que persisten en la aplicacion. <br />
+Settings: Activar modo nocturno. <br />
 
 ## Aplicación
+
+En el menu de arriba en la seccion se configuracion se puede activar o desactivar el modo nocturno
+
+<img src="video3.gif" width="220" height="400"/>
 
 Aumenta la cuenta de tu habito con el boton verde y restala con el boton rojo, el menu de arriba con el boton calendario puedes ver tu puntuación semanal.
 
