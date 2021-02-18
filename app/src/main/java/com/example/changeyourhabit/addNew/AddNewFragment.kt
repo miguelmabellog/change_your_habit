@@ -61,6 +61,10 @@ class AddNewFragment : Fragment() {
                 findNavController().navigate(R.id.action_addNewFragment_to_weekFragment)
                 true
             }
+            R.id.action_settings->{
+                findNavController().navigate(R.id.action_addNewFragment_to_settingsFragment)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 

@@ -13,10 +13,17 @@
         <action
             android:id="@+id/action_addNewFragment_to_weekFragment"
             app:destination="@id/weekFragment" />
+        <action
+            android:id="@+id/action_addNewFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/weekFragment"
         android:name="com.example.changeyourhabit.week.WeekFragment"
         android:label="week_fragment"
         tools:layout="@layout/week_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.changeyourhabit.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

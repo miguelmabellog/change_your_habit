@@ -45,23 +45,80 @@ class WeekFragment : Fragment() {
 
         viewModel.highligh.observe(viewLifecycleOwner,Observer{
 
-            binding.mondayConstrain.setBackgroundColor(Color.WHITE)
-            binding.tuesdayConstrain.setBackgroundColor(Color.WHITE)
-            binding.wednesdayConstrain.setBackgroundColor(Color.WHITE)
-            binding.thursdayConstrain.setBackgroundColor(Color.WHITE)
-            binding.fridayConstrain.setBackgroundColor(Color.WHITE)
-            binding.saturdayConstrain.setBackgroundColor(Color.WHITE)
-            binding.sundayConstrain.setBackgroundColor(Color.WHITE)
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.mondayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.tuesdayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.wednesdayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.thursdayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.fridayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.saturdayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+            view?.resources?.getColor(R.color.constrain)?.let { it1 ->
+                binding.sundayConstrain.setBackgroundColor(
+                    it1
+                )
+            }
+
 
 
             when (it){
-                "Monday"->binding.mondayConstrain.setBackgroundColor(Color.GREEN)
-                "Tuesday"->binding.tuesdayConstrain.setBackgroundColor(Color.GREEN)
-                "Wednesday"->binding.wednesdayConstrain.setBackgroundColor(Color.GREEN)
-                "Thursday"->binding.thursdayConstrain.setBackgroundColor(Color.GREEN)
-                "Friday"->binding.fridayConstrain.setBackgroundColor(Color.GREEN)
-                "Saturday"->binding.saturdayConstrain.setBackgroundColor(Color.GREEN)
-                "Sunday"->binding.sundayConstrain.setBackgroundColor(Color.GREEN)
+                "Monday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.mondayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
+                "Tuesday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.tuesdayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
+                "Wednesday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.wednesdayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
+                "Thursday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.thursdayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
+                "Friday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.fridayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
+                "Saturday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.saturdayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
+                "Sunday"-> view?.resources?.getColor(R.color.hilight)?.let { it1 ->
+                    binding.sundayConstrain.setBackgroundColor(
+                        it1
+                    )
+                }
             }
 
         })

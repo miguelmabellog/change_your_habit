@@ -14,4 +14,13 @@
     <string name="calendar">Calendario</string>
     <string name="delete_points">Quitar</string>
     <string name="last_time">Ultima vez</string>
+    <string name="pref_night_off">off</string>
+    <string name="pref_key_night">key_night_mode</string>
+    <string name="pref_night_summary">select a dark or light theme</string>
+    <string name="pref_night_title">night_mode</string>
+    <string name="pref_night_auto">auto</string>
+    <string name="pref_night_on">on</string>
+    <string name="night_mode_auto">Automatic</string>
+    <string name="night_mode_on">Night mode</string>
+    <string name="night_mode_off">Day mode</string>
 </resources>
